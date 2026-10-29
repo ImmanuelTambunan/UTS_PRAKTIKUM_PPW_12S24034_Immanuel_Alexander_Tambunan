@@ -30,7 +30,7 @@ class EquipmentController extends Controller
             $query->where('status', $request->status);
         }
 
-        $equipments = $query->latest('id')->paginate(6)->withQueryString();
+        $equipments = $query->latest('id')->paginate(5)->withQueryString();
         $categories = Category::orderBy('name')->get();
 
         return view('equipments.index', compact('equipments', 'categories'));

@@ -85,7 +85,7 @@ class LoanController extends Controller
         });
 
         if ($validator->fails()) {
-            return redirect()->back()
+            return redirect()->route('loans.create')
                 ->withErrors($validator)
                 ->withInput()
                 ->with('error', '[GAGAL] Pengajuan tidak dapat diproses. Silakan periksa kembali seluruh masukan data Anda.');
