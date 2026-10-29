@@ -24,17 +24,11 @@ class Equipment extends Model
         'image_path',
     ];
 
-    /**
-     * Get the category that owns the equipment.
-     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
-    /**
-     * Get the loan requests for the equipment.
-     */
     public function loanRequests(): HasMany
     {
         return $this->hasMany(LoanRequest::class);

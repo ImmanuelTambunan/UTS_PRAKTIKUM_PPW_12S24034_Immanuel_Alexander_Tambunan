@@ -15,9 +15,6 @@ class Category extends Model
         'code',
     ];
 
-    /**
-     * Get the equipments associated with the category.
-     */
     public function equipments(): HasMany
     {
         return $this->hasMany(Equipment::class);

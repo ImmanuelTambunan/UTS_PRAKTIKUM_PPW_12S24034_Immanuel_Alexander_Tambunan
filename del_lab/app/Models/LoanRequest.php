@@ -22,9 +22,6 @@ class LoanRequest extends Model
         'total_estimated_fee',
     ];
 
-    /**
-     * Get the equipment for this loan request.
-     */
     public function equipment(): BelongsTo
     {
         return $this->belongsTo(Equipment::class);
