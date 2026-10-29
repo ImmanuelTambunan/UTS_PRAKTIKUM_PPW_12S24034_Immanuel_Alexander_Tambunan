@@ -79,7 +79,7 @@ class DatabaseSeeder extends Seeder
             'category_id' => $drn->id,
             'asset_code' => 'EQ-DRN-001',
             'name' => 'DJI Mavic Air 2 Fly More Combo',
-            'specification' => '4K/60fps video, 48MP photo resolution, 1/2-inch CMOS sensor, 34-min flight time, OcuSync 2.0 10km video transmission.',
+            'specification' => 'Drone quadcopter kamera 4K/60fps video, 48MP photo resolution, 1/2-inch CMOS sensor, 34-min flight time, OcuSync 2.0 10km video transmission.',
             'condition' => 'baik',
             'status' => 'tersedia',
             'daily_rental_fee' => 50000,

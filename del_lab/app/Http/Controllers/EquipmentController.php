@@ -21,7 +21,8 @@ class EquipmentController extends Controller
             $search = trim($request->search);
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('asset_code', 'like', "%{$search}%");
+                  ->orWhere('asset_code', 'like', "%{$search}%")
+                  ->orWhere('specification', 'like', "%{$search}%");
             });
         }
 
