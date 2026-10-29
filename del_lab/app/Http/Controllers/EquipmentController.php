@@ -9,14 +9,10 @@ use Illuminate\Support\Str;
 
 class EquipmentController extends Controller
 {
-    /**
-     * Display a listing of the resource (Katalog berpaginasi, pencarian & filter).
-     */
     public function index(Request $request)
     {
         $query = Equipment::with('category');
 
-        // Filter kata kunci parsial pada nama dan kode aset
         if ($request->filled('search')) {
             $search = trim($request->search);
             $query->where(function ($q) use ($search) {
@@ -26,35 +22,26 @@ class EquipmentController extends Controller
             });
         }
 
-        // Filter kategori
         if ($request->filled('category_id') && $request->category_id !== 'semua' && $request->category_id !== '') {
             $query->where('category_id', $request->category_id);
         }
 
-        // Filter status ketersediaan
         if ($request->filled('status') && $request->status !== 'semua' && $request->status !== '') {
             $query->where('status', $request->status);
         }
 
-        // Urutkan data terbaru terlebih dahulu
         $equipments = $query->latest('id')->paginate(6)->withQueryString();
         $categories = Category::orderBy('name')->get();
 
         return view('equipments.index', compact('equipments', 'categories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $categories = Category::orderBy('name')->get();
         return view('equipments.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage (Validasi, upload foto, penyimpanan aset).
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -83,7 +70,6 @@ class EquipmentController extends Controller
             'specification.required' => 'Spesifikasi teknis perangkat wajib diisi.',
         ]);
 
-        // Simpan gambar dengan penamaan unik berbasis waktu dan slug kode aset
         $imageFile = $request->file('image');
         $extension = $imageFile->getClientOriginalExtension();
         $safeAssetCode = Str::slug($validated['asset_code'], '_');
@@ -105,9 +91,6 @@ class EquipmentController extends Controller
             ->with('success', "[SUKSES] Perangkat '{$equipment->name}' (Kode: {$equipment->asset_code}) berhasil didaftarkan!");
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
         $equipment = Equipment::with(['category', 'loanRequests' => function ($q) {
