@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <!-- Detail Grid Semantik HTML5 -->
+    <!-- Detail Perangkat -->
     <article class="detail-grid">
         <div class="detail-gallery">
             @if ($equipment->image_path)

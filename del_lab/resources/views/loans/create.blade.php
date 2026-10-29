@@ -61,7 +61,7 @@
                     @enderror
                 </div>
 
-                <!-- NIM Mahasiswa (Format Tepat 8 Digit) -->
+                <!-- NIM Mahasiswa -->
                 <div class="form-group">
                     <label for="borrower_nim" class="form-label">NIM Mahasiswa <span style="color:#dc2626;">*</span></label>
                     <input type="text" 
@@ -139,7 +139,7 @@
                 @enderror
             </div>
 
-            <!-- Info Box Kalkulasi Estimasi Biaya Dinamis -->
+            <!-- Estimasi Biaya -->
             <div id="feeCalculationBox" style="background: #F1F5F9; border: 1px solid #CBD5E1; border-radius: var(--radius-sm); padding: 1rem 1.25rem; margin-bottom: 1.75rem; display: flex; align-items: center; justify-content: space-between;">
                 <div>
                     <div style="font-size: 0.825rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted);">
@@ -154,7 +154,7 @@
                 </div>
             </div>
 
-            <!-- Tombol Aksi Formulir -->
+            <!-- Tombol Aksi -->
             <div style="display: flex; gap: 1rem; justify-content: flex-end;">
                 <a href="{{ route('equipments.index') }}" class="btn btn-secondary">Batal</a>
                 <button type="submit" class="btn btn-primary" style="padding-left: 2rem; padding-right: 2rem;">
@@ -164,7 +164,7 @@
         </form>
     </section>
 
-    <!-- Script Kalkulator Estimasi Biaya Otomatis -->
+    <!-- Script hitung estimasi biaya -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const eqSelect = document.getElementById('equipment_id');

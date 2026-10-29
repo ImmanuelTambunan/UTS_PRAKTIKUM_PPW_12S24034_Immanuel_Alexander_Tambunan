@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <!-- Section Pencarian & Multi-Filter Semantik HTML5 -->
+    <!-- Filter dan Pencarian -->
     <section class="search-filter-card" aria-label="Filter Pencarian Aset">
         <form action="{{ route('equipments.index') }}" method="GET" class="search-filter-form">
             <div class="form-group">
@@ -82,7 +82,7 @@
         @endif
     </section>
 
-    <!-- Grid Kartu Aset Responsif Semantik HTML5 (3 Kolom Desktop, 2 Kolom Tablet, 1 Kolom Smartphone) -->
+    <!-- Daftar Kartu Aset -->
     <section class="equipments-grid" aria-label="Daftar Kartu Inventaris Aset">
         @forelse ($equipments as $equipment)
             <article class="equipment-card">
@@ -160,7 +160,7 @@
         @endforelse
     </section>
 
-    <!-- Paginasi Dinamis Mempertahankan Parameter Query String -->
+    <!-- Paginasi -->
     @if ($equipments->hasPages())
         <div class="pagination-wrapper">
             <div style="font-size: 0.9rem; color: var(--text-muted);">
