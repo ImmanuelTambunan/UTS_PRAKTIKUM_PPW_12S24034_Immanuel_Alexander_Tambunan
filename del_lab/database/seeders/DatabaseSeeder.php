@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // 1. Seed Categories (Minimal 3 kategori)
+        // kategori
         $srv = Category::create([
             'name' => 'Server & Cloud',
             'code' => 'SRV',
@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             'code' => 'DRN',
         ]);
 
-        // 2. Seed Equipments (Minimal 6 data perangkat dengan status dan kondisi bervariasi)
+        // peralatan laboratorium
         $eq1 = Equipment::create([
             'category_id' => $srv->id,
             'asset_code' => 'EQ-SRV-001',
@@ -97,7 +97,7 @@ class DatabaseSeeder extends Seeder
             'image_path' => 'equipments/sample_fpv_drone.png',
         ]);
 
-        // 3. Seed an existing loan request for EQ-SRV-001 to demonstrate borrowed record
+        // peminjaman awal
         LoanRequest::create([
             'equipment_id' => $eq1->id,
             'borrower_name' => 'Johannes Sitompul',
